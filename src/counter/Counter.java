@@ -10,11 +10,19 @@ import javax.microedition.lcdui.*;
 /**
  * @author Adam
  */
-public class Counter extends CustomItem {
+public class Counter 
+extends CustomItem
+implements ItemCommandListener {
     public int current_value ;
+    private Command command_inc;
     public Counter(int value) {
         super("" + value);
         current_value = value;
+    }
+    public void initialize () {
+        setItemCommandListener(this);
+        command_inc = new Command("Count", Command.OK, 4);
+        setDefaultCommand(command_inc);
     }
     public void setValue (int value) {
         setLabel("" + value);
@@ -36,5 +44,10 @@ public class Counter extends CustomItem {
     }
     public void pointerPressed(int x, int y) {
         setValue(++current_value);
+    }
+    public void commandAction(Command c, Item item) {
+        if (c == command_inc) {
+            setValue(++current_value);
+        }
     }
 }

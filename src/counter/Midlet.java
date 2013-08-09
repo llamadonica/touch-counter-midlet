@@ -15,8 +15,7 @@ extends MIDlet
 implements CommandListener {
     
     private Command exitCommand  = new Command("Exit",Command.EXIT,2);
-    private Command incCommand   = new Command ("Count",Command.ITEM,1);
-    private Command resetCommand = new Command ("Reset",Command.ITEM,2);
+    private Command resetCommand = new Command ("Reset",Command.ITEM,3);
     private Form form;
     private Counter counter;
     private CounterRecord data_store;
@@ -27,9 +26,9 @@ implements CommandListener {
         int count = data_store.getCount();
         form = new Form("Counter");
         counter = new Counter(count);
+        counter.initialize();
         form.append(counter);
         form.addCommand(exitCommand);
-        form.addCommand(incCommand);
         form.addCommand(resetCommand);
         form.setCommandListener(this);
         Display.getDisplay(this).setCurrent(form);
@@ -41,8 +40,6 @@ implements CommandListener {
                 javax.microedition.lcdui.Display.getDisplay(this).setCurrent(null);
                 destroyApp(true);
                 notifyDestroyed();
-            } else if (command == incCommand) {
-                counter.setValue(++counter.current_value);
             } else if (command == resetCommand) {
                 counter.setValue(counter.current_value = 0);
             }
