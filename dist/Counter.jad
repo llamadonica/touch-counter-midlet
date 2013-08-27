@@ -1,8 +1,11 @@
+ATT-MIDlet-VirtualKeypad-Use: no
 MIDlet-1: Step Counter,,counter.Midlet
-MIDlet-Jar-Size: 4482
+MIDlet-Jar-Size: 4533
 MIDlet-Jar-URL: Counter.jar
 MIDlet-Name: Step Counter
+MIDlet-Touch-Support: true
 MIDlet-Vendor: Adam Stark
-MIDlet-Version: 0.0.8
+MIDlet-Version: 0.0.9
 MicroEdition-Configuration: CLDC-1.1
 MicroEdition-Profile: MIDP-2.0
+Navi-Key-Hidden: true
