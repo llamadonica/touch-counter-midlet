@@ -28,10 +28,16 @@ implements ItemCommandListener {
         setLabel("" + value);
     }
     protected void paint (Graphics g, int x, int y) {
-        
+        int x_g    = g.getClipX();
+        int y_g    = g.getClipY();
+        int width  = g.getClipWidth();
+        int height = g.getClipHeight();
+        g.setColor(Display.COLOR_BACKGROUND);
+        g.fillRect(x_g, y_g, width, height);
     }
     protected int getPrefContentWidth(int height) {
-        return 0;
+        Font working_font = Font.getDefaultFont();
+        return working_font.stringWidth("" + current_value);
     }
     protected int getMinContentWidth() {
         return 0;
@@ -46,8 +52,8 @@ implements ItemCommandListener {
         setValue(++current_value);
     }
     public void commandAction(Command c, Item item) {
-        if (c == command_inc) {
-            setValue(++current_value);
-        }
+//        if (c == command_inc) {
+//            setValue(++current_value);
+//        }
     }
 }
