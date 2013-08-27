@@ -52,8 +52,8 @@ implements ItemCommandListener {
         setValue(++current_value);
     }
     public void commandAction(Command c, Item item) {
-//        if (c == command_inc) {
-//            setValue(++current_value);
-//        }
+        if (c == command_inc) {
+            setValue(++current_value);
+        }
     }
 }
